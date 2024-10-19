@@ -30,18 +30,16 @@ int main ()
     
     setfill ("."); //set fill to periods 
     
-    //when transaction is withdrawal
     while (inFile >> transactionType >> transactionAmount)
     {
-        if (transactionType == 'W')
+        if (transactionType == 'W') //when transaction is withdrawal
         {
             balance -= transactionAmount; //updatting the balance
             totalWithdrawalValue += transactionAmount; 
             cout << "W" << setw (6) << "." << -transactionAmount << setw(6) << "." << balance << endl; 
         }
         
-        //when transaction is deposit 
-        else if (transactionType == 'D')
+        else if (transactionType == 'D') //when transaction is deposit 
         {
             balance += transactionAmount; //updatting the balance
             totalDepositValue += transactionAmount;
