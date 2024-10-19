@@ -16,7 +16,7 @@ int main ()
     //creating variables 
     int startingAmount; //variable for starting amount  
     char transactionType; //variable for transaction type
-    float balance, numberOfTransactions, transactionAmount, totalWithdrawalValue, totalDepositValue; 
+    float balance, numberOfTransactions, transactionAmount, totalWithdrawalValue = 0.0, totalDepositValue = 0.0; 
    
     //open the files 
     inFile.open("inData.txt");
@@ -33,7 +33,6 @@ int main ()
     //when transaction is withdrawal
     while (inFile >> transactionType >> transactionAmount)
     {
-
         if (transactionType == 'W')
         {
             balance -= transactionAmount; //updatting the balance
@@ -51,11 +50,8 @@ int main ()
     }    
     
     //close the files
-    if (inFile.eof())
-    {
-        inFile.close(); 
-        outFile.close(); 
-    }
+    inFile.close(); 
+    outFile.close(); 
     
     //calculation for balance at the end of the day 
     outFile << "Ending Balance = $" << balance << endl; 
